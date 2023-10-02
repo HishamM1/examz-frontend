@@ -40,7 +40,6 @@ const questions = ref([]);
 
 useApiFetch("/api/v1/teacher/exams/" + examId.value).then((res) => {
     exam.value = res;
-    console.log(res);
 }).catch((e) => {
     console.log(e.data);
     showError({ statusCode: e.statusCode, message: e.data.message })
@@ -50,7 +49,6 @@ useApiFetch("/api/v1/teacher/exams/" + examId.value).then((res) => {
 
 useApiFetch("/api/v1/teacher/exams/" + examId.value + "/questions").then((res) => {
     questions.value = res;
-    console.log(res);
 }).catch((e) => {
     console.log(e.data);
     showError({ statusCode: e.statusCode, message: e.data.message })

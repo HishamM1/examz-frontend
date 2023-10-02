@@ -64,8 +64,6 @@ export const useAuthStore = defineStore("auth", () => {
     }
 
     function connectToPusher(user, token) {
-        console.log(runtimeConfig.public.PUSHER_KEY);
-        console.log(process.env.PUSHER_KEY);
         let pusher = new Pusher(runtimeConfig.public.PUSHER_KEY, {
             cluster: "eu",
             authEndpoint: "https://examz.fly.dev/broadcasting/auth",
@@ -76,8 +74,6 @@ export const useAuthStore = defineStore("auth", () => {
             },
         });
 
-        console.log(pusher.connection.state);
-
         let channel = pusher.subscribe(`private-user.${user.id}`);
 
         channel.bind("Illuminate\\Notifications\\Events\\BroadcastNotificationCreated", function (notification) {
@@ -86,7 +82,6 @@ export const useAuthStore = defineStore("auth", () => {
                 message: notification.data.message,
                 timeout: 6,
             })
-            console.log(notification);
             useNotificationStore().notifications.unshift(notification)
         });
 

@@ -125,7 +125,6 @@ const getExams = async () => {
     .then((res) => {
       exams.value = res.data;
       links.value = res.meta.links;
-      console.log(exams.value);
     })
     .catch((e) =>
       showError({ statusCode: e.statusCode, message: e.data.message })

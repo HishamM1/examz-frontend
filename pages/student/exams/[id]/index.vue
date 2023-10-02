@@ -96,7 +96,6 @@ function setDuration(duration) {
 }
 
 function submitAnswers() {
-    console.log(answers.value);
     if (answers.value.some((answer) => answer.answer == "")) {
         confirm("You have not answered all the questions, do you want to submit anyway?") ? submit() : null;
     } else {
@@ -112,7 +111,6 @@ async function submit() {
             answers: JSON.stringify(answers.value)
         }
     }).then((res) => {
-        console.log(res);
         useToast().show({
             title: 'Success',
             message: res.message,
