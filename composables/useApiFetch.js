@@ -1,9 +1,13 @@
 export async function useApiFetch( path, options = {}) {
     let headers = {}
 
-    const token = useCookie('XSRF-TOKEN')
+    const token = useCookie('XSRF-TOKEN', {
+        domain: '.examz.fly.dev'
+    })
     console.log(token.value);
-    const access_token = useCookie('access_token')
+    const access_token = useCookie('access_token', {
+        domain: '.examz.fly.dev'
+    })
     console.log(access_token.value);
 
 
