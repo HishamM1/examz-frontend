@@ -94,5 +94,5 @@ export const useAuthStore = defineStore("auth", () => {
     }
 
 
-    return { user, exam_in_progress, isLoggedIn, login, fetchUser, logout };
+    return { user, exam_in_progress, isLoggedIn, login, fetchUser, logout, access_token };
 });
