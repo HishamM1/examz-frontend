@@ -9,7 +9,6 @@ export const useAuthStore = defineStore("auth", () => {
     const user = ref(null)
     const isLoggedIn = computed(() => !!user.value)
     const access_token = useCookie("access_token")
-    const xsrf_token = useCookie("XSRF-TOKEN")
     const runtimeConfig = useRuntimeConfig()
     const exam_in_progress = ref(null)
 
@@ -39,14 +38,13 @@ export const useAuthStore = defineStore("auth", () => {
     }
 
     async function login(form) {
-        await useApiFetch("/sanctum/csrf-cookie");
-
         return await useApiFetch("/api/v1/login", {
             server: false,
             method: "POST",
             body: form,
         }).then((res) => {
             useCookie("access_token").value = res.access_token;
+            console.log(res.access_token);
         });
     }
 
