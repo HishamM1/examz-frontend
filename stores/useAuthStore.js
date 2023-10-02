@@ -39,14 +39,14 @@ export const useAuthStore = defineStore("auth", () => {
     }
 
     async function login(form) {
-        // await useApiFetch("/sanctum/csrf-cookie");
+        await useApiFetch("/sanctum/csrf-cookie");
 
         return await useApiFetch("/api/v1/login", {
             server: false,
             method: "POST",
             body: form,
         }).then((res) => {
-            access_token.value = res.access_token;
+            useCookie("access_token").value = res.access_token;
         });
     }
 
@@ -94,5 +94,5 @@ export const useAuthStore = defineStore("auth", () => {
     }
 
 
-    return { user, exam_in_progress, isLoggedIn, login, fetchUser, logout, access_token };
+    return { user, exam_in_progress, isLoggedIn, login, fetchUser, logout };
 });
