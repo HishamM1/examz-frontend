@@ -67,7 +67,7 @@ export const useAuthStore = defineStore("auth", () => {
     function connectToPusher(user, token) {
         let pusher = new Pusher(runtimeConfig.public.PUSHER_KEY, {
             cluster: "eu",
-            authEndpoint: "http://localhost:8000/broadcasting/auth",
+            authEndpoint: "https://examz.fly.dev/broadcasting/auth",
             auth: {
                 headers: {
                     Authorization: `Bearer ${token}`,

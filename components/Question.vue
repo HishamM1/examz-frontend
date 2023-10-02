@@ -7,7 +7,7 @@
             <h3 class="font-semibold">{{ index + 1 }}.</h3>
             <p class=" text-gray-500" v-if="question.similarity">Similarity:
                 <span :class="{
-                    'text-red-500': (Math.round(question.similarity * 100) < 60) || question.similarity == null,
+                    'text-red-500': Math.round(question.similarity * 100) < 60,
                     'text-green-500': Math.round(question.similarity * 100) >= 60,
                 }">{{ Math.round(question.similarity * 100) }}%
                 </span>
