@@ -56,7 +56,6 @@ function editAnnouncement() {
         method: 'POST',
         body: form
     }).then((res) => {
-        console.log(res);
         useToast().show(res.message)
         emit('closeModal', true)
     }).catch((e) => {

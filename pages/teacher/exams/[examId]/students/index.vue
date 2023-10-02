@@ -99,7 +99,6 @@ const loading = ref(true);
 
 useApiFetch(`/api/v1/teacher/exams/${examId.value}/students`).then((res) => {
     students.value = res;
-    console.log(res);
     loading.value = false;
 }).catch((e) => {
     console.log(e.data);

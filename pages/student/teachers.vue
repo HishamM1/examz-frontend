@@ -25,7 +25,6 @@ const teachers = ref(null)
 onBeforeMount(async () => {
     await useApiFetch('/api/v1/student/teachers').then((res) => {
         teachers.value = res
-        console.log(res);
     }).catch((e) => {
         console.log(e.data);
         return showError({ statusCode: e.statusCode, message: e.data.message })

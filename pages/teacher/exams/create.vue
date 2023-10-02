@@ -256,8 +256,7 @@ function deleteQuestion(id) {
 
 function createExam() {
     formateDate()
-    console.log(exam.value);
-    console.log(questions.value);
+
 
     let formData = new FormData()
 
@@ -274,7 +273,6 @@ function createExam() {
         method: "POST",
         body: formData
     }).then(res => {
-        console.log(res);
         useToast().show({
             message: res.message
         })
@@ -283,7 +281,6 @@ function createExam() {
         console.log(e);
         console.log(e.data);
         errors.value = e.data.errors
-        console.log(errors.value);
     })
 }
 

@@ -57,7 +57,6 @@ async function updatePicture() {
         method: "POST",
         body: formData,
     }).then((res) => {
-        console.log(res);
         user.profile_picture = res.image
         useToast().show({
             message: res.message,

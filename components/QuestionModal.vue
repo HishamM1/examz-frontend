@@ -121,14 +121,11 @@ function updateQuestion() {
         formData.append('image', file.value)
     }
 
-    console.log(form.value);
-
     useApiFetch(`/api/v1/teacher/exams/${props.examId}/questions/${questionCopy.value.id}`, {
         method: 'POST',
         body: formData,
     }).then((res) => {
         emit('closeModal', true)
-        console.log(res);
         useToast().show({
             message: 'Question updated successfully',
         })

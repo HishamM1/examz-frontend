@@ -36,7 +36,5 @@ const props = defineProps({
     }
 })
 
-console.log(props.notifications);
-
 defineEmits(['markAsRead'])
 </script>

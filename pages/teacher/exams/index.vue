@@ -70,7 +70,6 @@ const handleDelete = (id) => {
         useApiFetch(`/api/v1/teacher/exams/${id}`, {
             method: 'DELETE'
         }).then((res) => {
-            console.log(res);
             exams.value = exams.value.filter((exam) => exam.id != id);
             useToast().show({ message: 'Exam deleted successfully', type: 'success' })
         }).catch((e) => {

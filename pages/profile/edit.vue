@@ -97,7 +97,6 @@ function handleUpdate() {
         method: "PUT",
         body: form
     }).then((res) => {
-        console.log(res);
         auth.fetchUser('/profile')
         useToast().show(res.message)
     }).catch((e) => errors.value = e.data.errors).finally(() => loading.value = false)
