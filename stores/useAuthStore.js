@@ -39,7 +39,7 @@ export const useAuthStore = defineStore("auth", () => {
     }
 
     async function login(form) {
-        await useApiFetch("/sanctum/csrf-cookie").then((res => console.log("hello" + res)));
+        await useApiFetch("/sanctum/csrf-cookie");
 
         return await useApiFetch("/api/v1/login", {
             server: false,
