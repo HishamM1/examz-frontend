@@ -21,7 +21,6 @@ const questions = ref([])
 const student_score = ref(0)
 const total_score = ref(0)
 const user = useAuthStore().user
-console.log(user);
 
 onBeforeMount(() => {
     loading.value = true
