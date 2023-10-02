@@ -59,20 +59,18 @@ export const useAuthStore = defineStore("auth", () => {
         }).finally(() => {
             user.value = null;
             access_token.value = null;
-            xsrf_token.value = null;
             navigateTo("/login", { replace: true });
         });
 
     }
 
-    function connectToPusher(user, token, xsrf) {
+    function connectToPusher(user, token) {
         let pusher = new Pusher(runtimeConfig.public.PUSHER_KEY, {
             cluster: "eu",
             authEndpoint: "http://localhost:8000/broadcasting/auth",
             auth: {
                 headers: {
                     Authorization: `Bearer ${token}`,
-                    "X-XSRF-TOKEN": xsrf,
                 },
             },
         });
