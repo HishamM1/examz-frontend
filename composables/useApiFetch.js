@@ -1,6 +1,9 @@
-import { access_token } from "../stores/useAuthStore";
+import {useAuthStore} from "../stores/useAuthStore";
+import {ref} from "vue";
 export async function useApiFetch( path, options = {}) {
     let headers = {}
+
+    let access_token = ref(useAuthStore().access_token)
 
     if(access_token.value){
         headers['Authorization'] = `Bearer ${access_token.value}`
