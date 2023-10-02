@@ -10,7 +10,7 @@
             <main class="flex items-center justify-center p-4 lg:col-span-7 xl:col-span-6">
                 <div class="max-w-xl lg:max-w-3xl">
                     <a class="block text-blue-600 w-80" href="/">
-                        <img src="/logo/svg/Black logo - no background.svg" alt="">
+                        <img :src="'/logo/svg/Black logo - no background.svg'" alt="">
                     </a>
 
                     <h1 class="mt-6 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl">

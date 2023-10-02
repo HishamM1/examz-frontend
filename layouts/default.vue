@@ -2,7 +2,7 @@
   <nav class="dark:bg-gray-900 border-gray-300 border-b-[1px] mb-4">
     <div class="w-full container flex flex-wrap items-center justify-between mx-auto py-4">
       <NuxtLink to="/" class="flex items-center">
-        <img src="/logo/svg/Black logo - no background.svg" class="h-8 mr-3" alt="Logo" />
+        <img :src="'/logo/svg/Black logo - no background.svg'" class="h-8 mr-3" alt="Logo" />
       </NuxtLink>
       <div class="flex items-center md:order-2 relative">
         <!-- Notifications -->
