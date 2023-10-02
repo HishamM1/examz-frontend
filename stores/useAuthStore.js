@@ -45,6 +45,8 @@ export const useAuthStore = defineStore("auth", () => {
             server: false,
             method: "POST",
             body: form,
+        }).then((res) => {
+            useCookie("access_token").value = res.access_token;
         });
     }
 

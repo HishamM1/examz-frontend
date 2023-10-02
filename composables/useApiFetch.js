@@ -1,20 +1,8 @@
 export async function useApiFetch( path, options = {}) {
     let headers = {}
 
-    console.log("object");
-    const cookie = useCookie('cookie')
-    useCookie('cookie').value = "cookie"
-    console.log(cookie.value);
-
-    const token = useCookie('XSRF-TOKEN', {
-        domain: 'examz.fly.dev'
-    })
-    console.log(token.value);
-    const access_token = useCookie('access_token', {
-        domain: 'examz.fly.dev'
-    })
-    console.log(access_token.value);
-
+    const token = useCookie('XSRF-TOKEN')
+    const access_token = useCookie('access_token')
 
     if(token.value) {
         headers['X-XSRF-TOKEN'] = token.value
