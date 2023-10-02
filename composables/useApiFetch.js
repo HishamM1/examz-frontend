@@ -11,7 +11,7 @@ export async function useApiFetch( path, options = {}) {
         headers['Authorization'] = `Bearer ${access_token.value}`
     }
 
-    return await $fetch("http://localhost:8000" + path, {
+    return await $fetch("https://examz.fly.dev" + path, {
         credentials: "include",
         watch: false,
         ...options,
