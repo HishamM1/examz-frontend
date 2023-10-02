@@ -2,7 +2,10 @@ export async function useApiFetch( path, options = {}) {
     let headers = {}
 
     const token = useCookie('XSRF-TOKEN')
+    console.log(token.value);
     const access_token = useCookie('access_token')
+    console.log(access_token.value);
+
 
     if(token.value) {
         headers['X-XSRF-TOKEN'] = token.value
