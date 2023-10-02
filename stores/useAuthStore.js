@@ -44,7 +44,6 @@ export const useAuthStore = defineStore("auth", () => {
             body: form,
         }).then((res) => {
             useCookie("access_token").value = res.access_token;
-            console.log(res.access_token);
         });
     }
 
@@ -65,6 +64,7 @@ export const useAuthStore = defineStore("auth", () => {
     }
 
     function connectToPusher(user, token) {
+        console.log(runtimeConfig.public.PUSHER_KEY);
         let pusher = new Pusher(runtimeConfig.public.PUSHER_KEY, {
             cluster: "eu",
             authEndpoint: "https://examz.fly.dev/broadcasting/auth",
@@ -74,6 +74,8 @@ export const useAuthStore = defineStore("auth", () => {
                 },
             },
         });
+
+        console.log(pusher.connection.state);
 
         let channel = pusher.subscribe(`private-user.${user.id}`);
 
