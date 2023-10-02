@@ -47,7 +47,6 @@ export const useAuthStore = defineStore("auth", () => {
             body: form,
         }).then((res) => {
             access_token.value = res.access_token;
-            useCookie("access_token", res.access_token);
         });
     }
 
