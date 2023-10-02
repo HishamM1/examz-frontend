@@ -96,6 +96,8 @@ const props = defineProps({
     }
 })
 
+console.log(props.question);
+
 const emit = defineEmits(['getQuestions'])
 
 const new_score = ref(0)
