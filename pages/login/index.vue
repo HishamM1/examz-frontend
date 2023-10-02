@@ -76,6 +76,7 @@ definePageMeta({
 
 const auth = useAuthStore();
 
+
 const form = reactive({
     email: '',
     password: '',
