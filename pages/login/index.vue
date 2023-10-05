@@ -1,5 +1,5 @@
 <template>
-    <section class="relative flex flex-wrap h-screen lg:items-center">
+    <section class="relative flex flex-wrap h-screen lg:items-center bg-gradient-to-b from-white to-blue-700 lg:bg-none">
         <div class="w-full px-4 py-12 sm:px-6 sm:py-16 lg:w-1/2 lg:px-8 lg:py-24">
             <div class="mx-auto max-w-lg text-center">
                 <h1 class="text-2xl font-bold sm:text-3xl">Welcome Back!</h1>
@@ -62,7 +62,7 @@
             </form>
         </div>
 
-        <div class="relative w-full h-full lg:w-1/2">
+        <div class="relative hidden lg:block w-full h-full lg:w-1/2">
             <div class="absolute inset-0 lg:bg-gradient-to-r bg-gradient-to-b from-white to-blue-700"></div>
         </div>
     </section>
