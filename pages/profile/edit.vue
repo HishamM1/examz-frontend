@@ -87,6 +87,11 @@ import { useToast } from 'tailvue'
 definePageMeta({
     middleware: ['auth', 'verified']
 })
+
+useHead({
+    title: 'Edit Profile'
+})
+
 const auth = useAuthStore()
 const form = reactive(JSON.parse(JSON.stringify(auth.user)));
 const errors = ref({})

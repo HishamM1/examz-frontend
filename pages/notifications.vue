@@ -29,6 +29,10 @@ definePageMeta({
     middleware: 'auth'
 })
 
+useHead({
+    title: 'Notifications'
+})
+
 const user_notifications = useNotificationStore()
 
 const notifications = computed(() => user_notifications.notifications)

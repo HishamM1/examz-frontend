@@ -80,6 +80,11 @@
 definePageMeta({
   middleware: ['auth', 'verified', 'student']
 });
+
+useHead({
+  title: 'Exams'
+})
+
 const loading = ref(true);
 const exams = ref({});
 const links = ref({});

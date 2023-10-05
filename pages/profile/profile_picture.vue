@@ -34,6 +34,11 @@ import { useToast } from "tailvue"
 definePageMeta({
     middleware: ['auth', 'verified']
 })
+
+useHead({
+    title: 'Change Profile Picture'
+})
+
 const user = useAuthStore().user
 
 const loading = ref(false)

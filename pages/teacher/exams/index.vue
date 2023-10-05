@@ -43,9 +43,15 @@
 </template>
 <script setup>
 import { useToast } from 'tailvue'
+
+useHead({
+    title: 'Exams'
+})
+
 definePageMeta({
     middleware: ['auth', 'verified', 'teacher']
 });
+
 const loading = ref(true);
 const exams = ref({});
 const links = ref({});

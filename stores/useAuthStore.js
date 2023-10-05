@@ -8,7 +8,6 @@ import Pusher from "pusher-js";
 export const useAuthStore = defineStore("auth", () => {
     const user = ref(null)
     const isLoggedIn = computed(() => !!user.value)
-    const access_token = useCookie("access_token")
     const runtimeConfig = useRuntimeConfig()
     const exam_in_progress = ref(null)
 
@@ -48,6 +47,9 @@ export const useAuthStore = defineStore("auth", () => {
     }
 
     async function logout() {
+        user.value = null;
+        useCookie("access_token").value = '';
+        navigateTo("/login", { replace: true });
 
         await useApiFetch("/api/v1/logout", {
             method: "POST",
@@ -55,12 +57,7 @@ export const useAuthStore = defineStore("auth", () => {
 
         }).catch(() => {
 
-        }).finally(() => {
-            user.value = null;
-            access_token.value = null;
-            navigateTo("/login", { replace: true });
-        });
-
+        })
     }
 
     function connectToPusher(user, token) {

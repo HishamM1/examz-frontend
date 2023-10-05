@@ -25,6 +25,10 @@ definePageMeta({
     middleware: ['auth']
 })
 
+useHead({
+    title: 'Verify your email'
+})
+
 async function resendEmail() {
     await useApiFetch('/api/v1/email/verification-notification', {
         method: 'POST'

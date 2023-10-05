@@ -160,6 +160,9 @@ definePageMeta({
     layout: ''
 })
 
+useHead({
+    title: 'Register'
+})
 const auth = useAuthStore()
 
 const form = reactive({
@@ -186,13 +189,10 @@ async function handleRegister() {
         server: false,
         method: "POST",
         body: removeEmpty(form)
-    }).then(async (res) => {
-        await auth.login({
-            email: form.email,
-            password: form.password
-        }).then((res) => navigateTo('/'))
+    }).then(async () => {
+        navigateTo('/login')
     }).catch((e) => {
-        error.value = e.data.errors  
+        error.value = e.data.errors
     }).finally(() => {
         loading.value = false
     })

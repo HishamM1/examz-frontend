@@ -116,6 +116,11 @@ import { useToast } from 'tailvue'
 definePageMeta({
     middleware: ['auth', 'verified', 'teacher']
 })
+
+useHead({
+    title: 'Student Results'
+})
+
 const loading = ref(true)
 const button_loading = ref(false)
 const student = ref({})

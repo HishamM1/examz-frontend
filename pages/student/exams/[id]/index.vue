@@ -34,6 +34,11 @@ import { useToast } from "tailvue"
 definePageMeta({
     middleware: ['auth', 'verified', 'student']
 })
+
+useHead({
+    title: 'Exam'
+})
+
 const auth = useAuthStore()
 const route = useRoute()
 const exam = ref({});

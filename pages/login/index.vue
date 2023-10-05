@@ -74,6 +74,10 @@ definePageMeta({
     layout: ''
 })
 
+useHead({
+    title: 'Login'
+})
+
 const auth = useAuthStore();
 
 

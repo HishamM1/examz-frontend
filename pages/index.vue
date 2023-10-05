@@ -42,7 +42,6 @@
                                     year: 'numeric',
                                     hour: '2-digit',
                                     minute: '2-digit',
-
                                 })
                             }}
                         </div>
@@ -106,6 +105,10 @@
         <div v-if="loading" class="container mx-auto flex justify-center items-center h-[calc(100vh-100px)]">
             <LoadingState />
         </div>
+        <div v-if="!next_cursor && announcements.length > 0"
+            class="container mx-auto flex justify-center items-center md:text-2xl h-24 font-bold">
+            No More Announcements!</div>
+
     </div>
     <EditAnnouncementModal v-if="announcementModal" :announcement="announcement" @closeModal="closeModal" />
 </template>
@@ -115,6 +118,16 @@ import { useToast } from 'tailvue'
 
 definePageMeta({
     middleware: ['auth', 'verified'],
+})
+
+useHead({
+    title: 'Home',
+    meta: [
+        {
+            name: 'description',
+            content: 'Home page',
+        },
+    ],
 })
 
 const user = useAuthStore().user

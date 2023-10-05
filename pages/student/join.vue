@@ -25,9 +25,15 @@
 
 <script setup>
 import { useToast } from "tailvue"
+
 definePageMeta({
     middleware: ['auth', 'verified', 'student']
 })
+
+useHead({
+    title: 'Join Teacher'
+})
+
 const code = ref("")
 const error = ref("")
 const loading = ref(false)

@@ -153,6 +153,10 @@ definePageMeta({
     middleware: ['auth', 'verified', 'teacher']
 })
 
+useHead({
+    title: 'Create Exam'
+})
+
 const now = new Date().toISOString().slice(0, 19)
 
 const exam = ref({

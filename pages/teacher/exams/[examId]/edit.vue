@@ -109,6 +109,11 @@ import { useToast } from 'tailvue'
 definePageMeta({
     middleware: ['auth', 'verified', 'teacher']
 })
+
+useHead({
+    title: 'Edit Exam'
+})
+
 const route = useRoute()
 
 const examId = ref(route.params.examId)

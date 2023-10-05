@@ -52,6 +52,10 @@ definePageMeta({
     middleware: ['auth']
 })
 
+useHead({
+    title: 'Profile'
+})
+
 const auth = useAuthStore();
 
 const user = ref(auth.user)

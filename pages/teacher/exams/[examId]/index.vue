@@ -31,6 +31,15 @@
 </template>
 
 <script setup>
+
+definePageMeta({
+    middleware: ['auth', 'verified', 'teacher']
+})
+
+useHead({
+    title: 'Exam'
+})
+
 const route = useRoute();
 
 const examId = ref(route.params.examId);

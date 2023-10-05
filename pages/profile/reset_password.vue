@@ -53,6 +53,10 @@ definePageMeta({
     middleware: ['auth', 'verified']
 })
 
+useHead({
+    title: 'Change Password'
+})
+
 const form = reactive({
     current_password: '',
     password: '',

@@ -98,7 +98,7 @@ const user = ref({})
 
 watchEffect(() => {
   user.value = useAuthStore().user
-  if (!user.value.verified) {
+  if (!user.value?.verified) {
     useToast().show({
       message: "Don't forget to verify your email",
       type: 'danger',

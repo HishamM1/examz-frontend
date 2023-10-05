@@ -13,6 +13,14 @@
 </template>
 
 <script setup>
+definePageMeta({
+    middleware: ['auth', 'verified', 'teacher']
+})
+
+useHead({
+    title: 'Exam Result'
+})
+
 const route = useRoute()
 
 const examId = ref(route.params.examId)
