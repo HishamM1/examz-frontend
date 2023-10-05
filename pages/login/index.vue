@@ -90,6 +90,7 @@ const errors = ref(null)
 const loading = ref(false)
 
 async function handleLogin() {
+    console.log("login");
     loading.value = true
     await auth.login(form).then(async (res) => {
         await auth.fetchUser()
