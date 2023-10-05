@@ -93,7 +93,11 @@ async function handleLogin() {
     loading.value = true
     await auth.login(form).then(async (res) => {
         await auth.fetchUser()
-    }).catch((e) => errors.value = e.data.errors).finally(() => loading.value = false)
+    }).catch((e) => {
+        errors.value = e.data.errors
+        console.log(e);
+        console.log(e.data);
+    }).finally(() => loading.value = false)
 }
 
 
