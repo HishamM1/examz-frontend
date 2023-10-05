@@ -26,7 +26,7 @@ export const useAuthStore = defineStore("auth", () => {
 
         await useNotificationStore().fetchNotifications();
 
-        connectToPusher(user.value, useCookie("access_token").value, useCookie("XSRF-TOKEN").value)
+        connectToPusher(user.value, useCookie("access_token").value)
     }
 
     async function checkInProgressExam() {
