@@ -23,7 +23,7 @@ const props = defineProps({
     error: Object
 })
 
-if(props.error.statusCode === 401) {
+if(props.error.statusCode == 401) {
     clearError()
     auth.logout()
 }

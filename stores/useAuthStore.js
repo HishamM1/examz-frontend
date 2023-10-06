@@ -74,11 +74,23 @@ export const useAuthStore = defineStore("auth", () => {
         let channel = pusher.subscribe(`private-user.${user.id}`);
 
         channel.bind("Illuminate\\Notifications\\Events\\BroadcastNotificationCreated", function (notification) {
-            useToast().show({
-                type: 'danger',
-                message: notification.data.message,
-                timeout: 6,
-            })
+            if(!notification.data.link) {
+                useToast().show({
+                    type: 'danger',
+                    message: notification.data.message,
+                    timeout: 6,
+                })
+            } else {
+                useToast().show({
+                    type: 'success',
+                    message: notification.data.message,
+                    timeout: 6,
+                    primary: {
+                        label: 'View',
+                        action: () => navigateTo(notification.data.link)
+                    }
+                })
+            }
             useNotificationStore().notifications.unshift(notification)
         });
 

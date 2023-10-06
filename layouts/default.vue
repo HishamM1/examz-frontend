@@ -89,23 +89,11 @@
 </template>
 
 <script setup>
-import { useToast } from 'tailvue'
 const auth = useAuthStore();
 const notifications = useNotificationStore()
 const modal = useModalStore()
 
 const user = ref({})
-
-watchEffect(() => {
-  user.value = useAuthStore().user
-  if (!user.value?.verified) {
-    useToast().show({
-      message: "Don't forget to verify your email",
-      type: 'danger',
-      timeout: 6,
-    })
-  }
-})
 
 async function logout() {
   modal.closeAll()
