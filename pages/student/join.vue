@@ -27,7 +27,7 @@
 import { useToast } from "tailvue"
 
 definePageMeta({
-    middleware: ['auth', 'verified', 'student']
+    middleware: ['auth', 'student']
 })
 
 useHead({

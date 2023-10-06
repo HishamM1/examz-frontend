@@ -3,7 +3,7 @@
         <div v-if="teachers.length > 0" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 pb-6 items-center">
             <UserCard v-for="teacher in teachers" :key="teacher.id" :user="teacher" @delete="deleteTeacher" />
         </div>
-        <div v-else class="container mx-auto flex justify-center items-center h-[calc(100vh-100px)] text-2xl sm:text-4xl md:text-6xl font-bold">
+        <div v-else class="container mx-auto flex justify-center items-center h-[calc(100vh-100px)] sm:text-2xl md:text-4xl font-bold">
             Go to <NuxtLink to="/student/join" class="text-indigo-600 hover:text-indigo-500 underline mx-2">Join Teacher</NuxtLink> to join a teacher!
         </div>
 
@@ -17,7 +17,7 @@
 import { useToast } from 'tailvue'
 
 definePageMeta({
-    middleware: ['auth', 'verified', 'student']
+    middleware: ['auth', 'student']
 })
 
 useHead({

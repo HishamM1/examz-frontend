@@ -33,7 +33,7 @@
 <script setup>
 
 definePageMeta({
-    middleware: ['auth', 'verified', 'teacher']
+    middleware: ['auth', 'teacher']
 })
 
 useHead({

@@ -130,7 +130,6 @@ const editScore = (id) => {
             type: 'success'
         })
     }).catch((err) => {
-        console.log(err.data);
         useToast().show({
             title: 'Error',
             message: err.data.message,

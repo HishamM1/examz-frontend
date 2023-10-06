@@ -74,7 +74,7 @@ export const useAuthStore = defineStore("auth", () => {
         let channel = pusher.subscribe(`private-user.${user.id}`);
 
         channel.bind("Illuminate\\Notifications\\Events\\BroadcastNotificationCreated", function (notification) {
-            if(!notification.data.link) {
+            if(notification.data.link == undefined) {
                 useToast().show({
                     type: 'danger',
                     message: notification.data.message,

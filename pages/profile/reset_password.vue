@@ -50,7 +50,7 @@
 import { useToast } from "tailvue";
 
 definePageMeta({
-    middleware: ['auth', 'verified']
+    middleware: ['auth']
 })
 
 useHead({

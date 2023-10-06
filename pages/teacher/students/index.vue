@@ -82,7 +82,7 @@
 import { useToast } from 'tailvue'
 
 definePageMeta({
-    middleware: ['auth', 'verified', 'teacher']
+    middleware: ['auth', 'teacher']
 })
 
 useHead({

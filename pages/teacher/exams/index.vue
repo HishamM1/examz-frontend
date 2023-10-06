@@ -49,7 +49,7 @@ useHead({
 })
 
 definePageMeta({
-    middleware: ['auth', 'verified', 'teacher']
+    middleware: ['auth', 'teacher']
 });
 
 const loading = ref(true);

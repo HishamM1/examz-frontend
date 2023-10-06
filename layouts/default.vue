@@ -18,7 +18,7 @@
           class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
           @click="modal.toggleUserModal">
           <span class="sr-only">Open user menu</span>
-          <img class="w-8 h-8 rounded-full" :src="user.profile_picture" alt="user photo">
+          <img class="w-8 h-8 rounded-full" :src="user?.profile_picture" alt="user photo">
         </button>
         <!-- user modal -->
         <div
@@ -71,7 +71,7 @@
               class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
               Home</NuxtLink>
           </li>
-          <TeacherNav v-if="user.role == 'teacher'" />
+          <TeacherNav v-if="user?.role == 'teacher'" />
           <StudentNav v-else />
         </ul>
       </div>
@@ -89,11 +89,23 @@
 </template>
 
 <script setup>
+import { useToast } from 'tailvue'
 const auth = useAuthStore();
 const notifications = useNotificationStore()
 const modal = useModalStore()
 
 const user = ref({})
+
+watchEffect(() => {
+  user.value = useAuthStore().user
+  if(user.value && !user.value.verified) {
+    useToast().show({
+            title: 'Error',
+            message: "Don't forget to verify your email check your inbox or spam folder",
+            type: 'danger'
+        })
+  }
+})
 
 async function logout() {
   modal.closeAll()

@@ -72,13 +72,13 @@
     <LoadingState />
   </div>
   <div v-else-if="!loading && exams.length == 0"
-            class="container mx-auto flex justify-center items-center h-[calc(100vh-100px)] text-2xl sm:text-4xl md:text-6xl font-bold">
-            No Exams Yet, Try Joining a Teacher!</div>
+            class="container mx-auto flex justify-center items-center h-[calc(100vh-100px)] sm:text-2xl md:text-4xl font-bold">
+            No Exams Yet, Try <NuxtLink to="/student/join" class="text-indigo-600 hover:text-indigo-500 underline mx-2">Joining a Teacher!</NuxtLink> </div>
 
 </template>
 <script setup>
 definePageMeta({
-  middleware: ['auth', 'verified', 'student']
+  middleware: ['auth', 'student']
 });
 
 useHead({
