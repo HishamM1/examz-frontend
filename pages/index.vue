@@ -269,7 +269,6 @@ function deleteAnnouncement(id) {
             menu.value = Array(announcements.value.length).fill(false)
             useToast().show({ message: 'Announcement deleted successfully', type: 'success' })
         }).catch((e) => {
-            ;
         })
     }
 }
@@ -282,7 +281,6 @@ function likeAnnouncement(id) {
     }).then(() => {
 
     }).catch((e) => {
-        ;
         user?.likes.pop()
         announcements.value.find((announcement) => announcement.id == id).likes_count--
     })
@@ -297,7 +295,6 @@ function dislikeAnnouncement(id) {
     }).then(() => {
 
     }).catch((e) => {
-        ;
         user?.likes.push(id)
         announcements.value.find((announcement) => announcement.id == id).likes_count++
     })
