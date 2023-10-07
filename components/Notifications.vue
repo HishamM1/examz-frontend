@@ -21,9 +21,9 @@
                             }) }}
                         </p>
                     </div>
-                    <p class="mt-1 text-sm">
-                        {{ notification.data.message }}
-                    </p>
+                    <div class="mt-1 text-sm">
+                        {{ notification.data.message }} <NuxtLink v-if="notification.data.link" :to="notification.data.link" class="text-indigo-600 hover:text-indigo-500 underline mx-2">View</NuxtLink>
+                    </div>
                 </div>
             </div>
 </template>
