@@ -31,7 +31,7 @@ onBeforeMount(async () => {
     await useApiFetch('/api/v1/student/teachers').then((res) => {
         teachers.value = res
     }).catch((e) => {
-        console.log(e.data);
+        ;
         return showError({ statusCode: e.statusCode, message: e.data.message })
     }).finally(() => {
         loading.value = false
@@ -46,7 +46,7 @@ const deleteTeacher = async (id) => {
             teachers.value = teachers.value.filter((teacher) => teacher.id !== id)
             useToast().show({ message: res.message })
         }).catch((e) => {
-            console.log(e.data);
+            ;
             return showError({ statusCode: e.statusCode, message: e.data.message })
         })
     }

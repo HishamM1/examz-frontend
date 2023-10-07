@@ -76,7 +76,7 @@ onMounted(async () => {
             timeout: 6,
         })
         navigateTo('/student/exams')
-        console.log(e.data);
+        ;
 
     }).finally(() => loading.value = false);
 })
@@ -126,7 +126,6 @@ async function submit() {
         auth.exam_in_progress = false;
         navigateTo('/student/exams')
     }).catch((e) => {
-        console.log(e);
         useToast().show({
             title: 'Error',
             message: e.data.message,

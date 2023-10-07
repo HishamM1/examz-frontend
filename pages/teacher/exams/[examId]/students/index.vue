@@ -109,7 +109,7 @@ useApiFetch(`/api/v1/teacher/exams/${examId.value}/students`).then((res) => {
     students.value = res;
     loading.value = false;
 }).catch((e) => {
-    console.log(e.data);
+    ;
 })
 
 function deleteStudent(studentId) {
@@ -119,7 +119,7 @@ function deleteStudent(studentId) {
         }).then((res) => {
             students.value = students.value.filter((student) => student.id != studentId);
         }).catch((e) => {
-            console.log(e.data);
+            ;
         })
     }
 }

@@ -132,7 +132,13 @@ onBeforeMount(() => {
     loading.value = true
     useApiFetch(`/api/v1/teacher/students/${id}/results`).then((res) => {
         student.value = res
-    }).catch((e) => console.log(e.data)).finally(() => loading.value = false)
+    }).catch((e) => {
+        useToast().show({
+            title: 'Error',
+            message: e.data.message,
+            type: 'error'
+        })
+    } ).finally(() => loading.value = false)
 })
 
 async function getReport() {

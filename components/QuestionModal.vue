@@ -1,7 +1,12 @@
 <template>
     <div class="fixed top-0 right-0 bottom-0 left-0 z-40 bg-opacity-50 bg-black" @click.self="$emit('closeModal', false)">
         <div
-            class="p-8 w-2/4 max-h-screen overflow-auto bg-white rounded-lg shadow-lg right-0 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            class="p-4 md:p-8 w-full md:w-5/6 max-h-screen overflow-auto bg-white rounded-lg shadow-lg right-0 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <div>
+                <h1 class="text-2xl font-semibold mb-4">Edit Question</h1>
+                <button class="absolute right-4 top-4 border bg-opacity-50 border-black rounded-full px-2 bg-white cursor-pointer"
+                    @click="emit('closeModal', false)">X</button>
+            </div>
             <div v-if="questionCopy.image" class=" w-1/2 my-4 relative">
                 <img  :src="questionCopy.image" alt="question image">
                 <div class="absolute right-4 top-4 border bg-opacity-50 border-black rounded-full px-2 bg-white cursor-pointer" @click="removeImage">X</div>
@@ -19,7 +24,7 @@
                 <div v-for="option in questionCopy.options" :key="option.id">
                     <input type="radio" name="mcq" :checked="option.is_correct" v-model="option.is_correct"
                         :value="!!option.id" @change="resetCorrectAnswer(option.id)">
-                    <input type="text" class="text-md font-medium ml-2 mb-4 rounded shadow p-[4px]"
+                    <input type="text" class="text-sm md:text-base font-medium ml-2 mb-4 rounded shadow p-[4px]"
                         placeholder="Option text" v-model="option.text" />
                     <!-- X button to remove option -->
                     <button @click="questionCopy.options.splice(questionCopy.options.indexOf(option), 1)"
@@ -29,7 +34,7 @@
             </div>
             <div class="my-4">
                 <label for="score">Score</label>
-                <input type="number" class="text-md font-medium ml-2 rounded shadow p-[4px]" placeholder="Score" min="0"
+                <input type="number" class="text-sm md:text-base font-medium ml-2 rounded shadow p-[4px]" placeholder="Score" min="0"
                     v-model="questionCopy.score" />
             </div>
             <div v-if="errors" class="my-4">
@@ -129,9 +134,7 @@ function updateQuestion() {
         useToast().show({
             message: 'Question updated successfully',
         })
-    }).catch((e) => {
-        console.log(e);
-        console.log(e.data)
+    }).catch((e) => {        
         errors.value = e?.data?.errors;
         questionCopy.value = JSON.parse(JSON.stringify(props.question));
     })

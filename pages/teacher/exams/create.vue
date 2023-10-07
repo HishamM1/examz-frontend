@@ -282,8 +282,6 @@ function createExam() {
         })
         navigateTo(`/teacher/exams`)
     }).catch((e) => {
-        console.log(e);
-        console.log(e.data);
         errors.value = e.data.errors
     })
 }

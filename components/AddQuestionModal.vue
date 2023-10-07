@@ -2,11 +2,15 @@
     <div class="fixed top-0 right-0 bottom-0 left-0 z-40 bg-opacity-50 bg-black" @click.self="emit('closeModal', false)
         ">
         <div
-            class=" p-8 min-h-min w-2/4 bg-white rounded-lg shadow-lg right-0 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-h-screen overflow-y-auto">
-            <h1 class="text-2xl font-semibold mb-4">Add Question</h1>
+            class=" p-4 md:p-8 min-h-min w-full md:w-5/6 bg-white rounded-lg shadow-lg right-0 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-h-screen overflow-y-auto">
+            <div>
+                <h1 class="text-2xl font-semibold mb-4">Add Question</h1>
+                <button class="absolute right-4 top-4 border bg-opacity-50 border-black rounded-full px-2 bg-white cursor-pointer"
+                    @click="emit('closeModal', false)">X</button>
+            </div>
             <div class="my-4">
                 <label for="type">Type</label>
-                <select class="text-md font-medium rounded shadow p-[4px] w-full" v-model="question.type">
+                <select class=" text-sm md:text-base font-medium rounded shadow p-[4px] w-full" v-model="question.type">
                     <option value="open_ended">Open Ended</option>
                     <option value="mcq">Multiple Choice</option>
                 </select>
@@ -36,7 +40,7 @@
                 <div v-for="(option, index) in question.options" :key="option.id">
                     <input type="radio" name="mcq" :checked="option.is_correct" v-model="option.is_correct"
                         :value="!!option.id" @change="resetCorrectAnswer(option.id)">
-                    <input type="text" class="text-md font-medium ml-2 mb-4 rounded shadow p-[4px]"
+                    <input type="text" class=" text-sm md:text-base font-medium ml-2 mb-4 rounded shadow p-[4px]"
                         placeholder="Option text" v-model="option.text" />
                     <!-- X button to remove option -->
                     <button @click="question.options.splice(question.options.indexOf(option), 1)"
@@ -50,7 +54,7 @@
             </div>
             <div class="my-4">
                 <label for="score">Score</label>
-                <input type="number" class="text-md font-medium rounded shadow p-[4px] w-full" placeholder="Score"
+                <input type="number" class=" text-sm md:text-base font-medium rounded shadow p-[4px] w-full" placeholder="Score"
                     min="0" v-model="question.score" />
                 <span class="text-red-500 text-sm my-2"  v-if="errors['question.score']">{{
                     errors['question.score'][0] }}</span>
@@ -148,7 +152,7 @@ function addQuestion() {
             message: 'Question added successfully',
         })
     }).catch((e) => {
-        console.log(e.data)
+        
         errors.value = e.data.errors
     })
 }

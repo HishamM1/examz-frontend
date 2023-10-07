@@ -79,7 +79,7 @@ const handleDelete = (id) => {
             exams.value = exams.value.filter((exam) => exam.id != id);
             useToast().show({ message: 'Exam deleted successfully', type: 'success' })
         }).catch((e) => {
-            console.log(e.data);
+            ;
             showError({ statusCode: e.statusCode, message: e.data.message })
         })
     }
@@ -107,7 +107,6 @@ const getExams = async () => {
             links.value = res.meta.links;
         })
         .catch((e) => {
-            console.log(e)
             showError({ statusCode: e.statusCode, message: e.data.message })
         }
         )

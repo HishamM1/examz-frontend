@@ -81,7 +81,7 @@
                             </div>
                         </div>
                         <img v-if="question.image" :src="question.image" alt="" class="my-4">
-                        <input type="text" class="text-xl font-semibold mb-4 w-full rounded shadow p-[4px]" disabled
+                        <input type="text" class="text-base md:text-lg font-semibold mb-4 w-full rounded shadow p-[4px]" disabled
                             placeholder="Question text" v-model="question.text" />
                         <textarea v-if="question.type == 'open_ended'" rows="4" v-model="question.answer" disabled
                             class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -90,7 +90,7 @@
                         <div v-if="question.type == 'mcq'">
                             <div v-for="option in question.options" :key="option.id">
                                 <input type="radio" :name="question.id" :checked="option.is_correct" disabled>
-                                <input type="text" class="text-md font-medium ml-2 mb-4 rounded shadow p-[4px]"
+                                <input type="text" class="text-sm md:text-base font-medium ml-2 mb-4 rounded shadow p-[4px]"
                                     placeholder="Option text" v-model="option.text" disabled />
                             </div>
                         </div>
@@ -148,13 +148,13 @@ async function getExamInfo() {
     await useApiFetch(`/api/v1/teacher/exams/${examId.value}`).then((res) => {
         exam.value = res
         examCopy.value = JSON.parse(JSON.stringify(res))
-    }).catch((e) => console.log(e))
+    }).catch((e) => { })
 }
 
 async function getQuestions() {
     await useApiFetch(`/api/v1/teacher/exams/${examId.value}/questions`).then((res) => {
         questions.value = res
-    }).catch((e) => console.log(e))
+    }).catch((e) => { })
 }
 
 function showQuestionModal(question) {
@@ -177,7 +177,7 @@ function deleteQuestion(id) {
                 message: 'Question deleted successfully',
             })
         }).catch((e) => {
-            console.log(e.data)
+            
         })
     }
 }
@@ -202,8 +202,6 @@ function updateExamInfo() {
         })
     }).catch((e) => {
         exam.value = examCopy.value
-        console.log(e)
-        // reset exam info
     })
 }
 </script>

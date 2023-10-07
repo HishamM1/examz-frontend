@@ -139,7 +139,7 @@ async function getStudents() {
         students.value = res.data
         links.value = res.meta.links;
     }).catch((e) => {
-        console.log(e.data);
+        ;
         return showError({ statusCode: e.statusCode, message: e.data.message })
     }).finally(() => {
         loading.value = false
@@ -154,7 +154,7 @@ const deleteStudent = async (id) => {
             students.value = students.value.filter((student) => student.id !== id)
             useToast().show({ message: res.message })
         }).catch((e) => {
-            console.log(e.data);
+            ;
             return showError({ statusCode: e.statusCode, message: e.data.message })
         })
     }

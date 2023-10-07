@@ -40,7 +40,7 @@ async function resendEmail() {
             type: 'success'
         })
     }).catch((e)=> {
-        console.log(e.data);
+        ;
     })
 }
 

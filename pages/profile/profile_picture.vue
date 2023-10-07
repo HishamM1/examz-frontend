@@ -68,7 +68,7 @@ async function updatePicture() {
         })
         navigateTo('/profile')
     }).catch((e) => {
-        console.log(e.data);
+        ;
         // error.value = e.data.message
     }).finally(() => {
         loading.value = false

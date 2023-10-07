@@ -186,7 +186,7 @@ function markAnnouncementAsRead(id) {
         method: 'PUT',
     }).then(() => {
     }).catch((e) => {
-        console.log(e.data);
+        ;
     })
 }
 
@@ -196,7 +196,7 @@ function loadMore() {
             announcements.value = [...announcements.value, ...res.data]
             next_cursor.value = res.next_cursor
         }).catch((e) => {
-            console.log(e.data);
+            ;
         })
     }
 }
@@ -207,7 +207,7 @@ function getAnnouncements() {
         next_cursor.value = res.next_cursor
         loading.value = false
     }).catch((e) => {
-        console.log(e.data);
+        ;
     })
 }
 
@@ -269,7 +269,7 @@ function deleteAnnouncement(id) {
             menu.value = Array(announcements.value.length).fill(false)
             useToast().show({ message: 'Announcement deleted successfully', type: 'success' })
         }).catch((e) => {
-            console.log(e.data);
+            ;
         })
     }
 }
@@ -282,7 +282,7 @@ function likeAnnouncement(id) {
     }).then(() => {
 
     }).catch((e) => {
-        console.log(e.data);
+        ;
         user?.likes.pop()
         announcements.value.find((announcement) => announcement.id == id).likes_count--
     })
@@ -297,7 +297,7 @@ function dislikeAnnouncement(id) {
     }).then(() => {
 
     }).catch((e) => {
-        console.log(e.data);
+        ;
         user?.likes.push(id)
         announcements.value.find((announcement) => announcement.id == id).likes_count++
     })
