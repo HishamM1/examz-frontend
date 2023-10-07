@@ -1,63 +1,16 @@
-# Nuxt 3 Minimal Starter
+![logo](https://github.com/HishamM1/examz-frontend/blob/main/public/logo/png/Black%20logo%20-%20no%20background.png?raw=true)
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+# Examz
+Examz empowers teachers with NLP-based answer similarity assessment and comprehensive data analysis reports for in-depth student exam performance analysis.
 
-## Setup
+## For teachers
+You can easily create exams and questions that are tailored to your specific needs. Our platform offers a variety of question types ranging from multiple-choice to open-ended, allowing you to design exams that accurately assess your student's knowledge and understanding. Additionally, you can invite students to join your exams and monitor their progress in real time. 
 
-Make sure to install the dependencies:
+## For students
+Our platform provides a simple and efficient way to take exams created by their teachers. Once you take an exam, you can answer questions and receive immediate feedback on your performance. Our system is designed to ensure that all exams are conducted fairly and securely, giving students the confidence they need to perform their best.
 
-```bash
-# npm
-npm install
+## Frontend
+Our frontend is developed using Nuxt.js, a powerful Vue.js framework for building fast and server-side rendered applications.
 
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+## Deployment
+The website was deployed on Vercel
