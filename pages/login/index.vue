@@ -59,6 +59,24 @@
                         Sign in
                     </Button>
                 </div>
+                <div class="p-4 border border-black rounded-lg">
+                    <h3 class="font-bold mb-2">Testing accounts</h3>
+                    <div class="flex flex-col">
+                        <div class="flex flex-row items-center mb-2">
+                            <p class="text-gray-600 mr-2">Email:</p>
+                            <p>student@student.com</p>
+                        </div>
+                        <div class="flex flex-row items-center mb-2">
+                            <p class="text-gray-600 mr-2">or</p>
+                            <p>teacher@teacher.com</p>
+                        </div>
+                        <div class="h-[1px] bg-black w-full my-2"></div>
+                        <div class="flex flex-row items-center">
+                            <p class="text-gray-600 mr-2">password:</p>
+                            <p>password</p>
+                        </div>
+                    </div>
+                </div>
             </form>
         </div>
 
