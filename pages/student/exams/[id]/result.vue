@@ -1,9 +1,9 @@
 <template>
     <div class="container mx-auto" v-if="!loading">
         <!-- show student score / total score -->
-        <div class="flex justify-between items-center">
-            <h1 class="text-4xl font-bold">Questions</h1>
-            <p class="text-xl font-semibold">Total Score: {{ student_score }} / {{ total_score }}</p>
+        <div class="flex justify-between items-center ">
+            <h1 class="text-xl sm:text-4xl font-bold">Questions</h1>
+            <p class="text-xl sm:text-4xl font-bold">Total Score: {{ student_score }} / {{ total_score }}</p>
         </div>
         <Question v-for="(question, index) in questions" :key="question.id" :question="question" :index="index" />
     </div>

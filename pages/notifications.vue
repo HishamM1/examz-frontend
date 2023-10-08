@@ -1,7 +1,7 @@
 <template>
     <div class="min-h-[calc(100vh-70px)] grid place-items-center">
-        <div v-if="notifications.length > 0" class="lg:w-2/5 sm:w-3/5 w-11/12 dark:bg-gray-800 rounded-xl mx-auto  p-10">
-            <div class="inline-flex items-center justify-between w-full">
+        <div v-if="notifications.length > 0" class="w-full sm:w-11/12 lg:w-3/5 dark:bg-gray-800 rounded-xl mx-auto  p-10">
+            <div class="inline-flex flex-col sm:flex-row items-center justify-between w-full">
                 <h3 class="font-bold text-xl sm:text-2xl text-black dark:text-white">Notifications</h3>
                 <button
                     class="py-[2px] px-[6px] font-semibold rounded-lg shadow hover:shadow-md transition disabled:cursor-not-allowed disabled:bg-gray-300 disabled:border-0 disabled:shadow-none "
